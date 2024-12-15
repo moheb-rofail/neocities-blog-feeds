@@ -35,7 +35,7 @@ for post in posts_data:
         date_obj = datetime.strptime(pub_date_str, "%d %b %Y")
 
         # Convert to the RSS format: "Wed, 02 Oct 2005 14:00:00 +0000"
-        rss_date = date_obj.strftime("%a, %d %b %Y 00:00:00 +0000")
+        rss_date = date_obj.strftime("%a, %d %b %Y 07:00:00 +0000")
     except ValueError:
         rss_date = datetime.now()
 
@@ -43,7 +43,8 @@ for post in posts_data:
     rss_item = PyRSS2Gen.RSSItem(
         title=title,
         link="https://moheb-rofail.neocities.org/post?p="+link,
-        pubDate=rss_date
+        pubDate=rss_date,
+        guid="https://moheb-rofail.neocities.org/post?p="+link
     )
     
     # Add the item to the list
