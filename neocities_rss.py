@@ -42,9 +42,9 @@ for post in posts_data:
     # Create an RSS item
     rss_item = PyRSS2Gen.RSSItem(
         title=title,
-        link="https://moheb-rofail.neocities.org/post?p="+link,
+        link="https://moheb-rofail.neocities.org/?page=post&p="+link,
         pubDate=rss_date,
-        guid="https://moheb-rofail.neocities.org/post?p="+link
+        guid="https://moheb-rofail.neocities.org/?page=post&p="+link
     )
     
     # Add the item to the list
