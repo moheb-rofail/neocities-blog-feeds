@@ -5,7 +5,7 @@ import json
 
 site_url = 'https://moheb-rofail.neocities.org/'
 # URL of the JSON file
-json_url = 'https://moheb-rofail.neocities.org/Arrays/posts.json'
+json_url = 'https://moheb-rofail.neocities.org/includes/posts.json'
 
 # Send a GET request to the URL to fetch the JSON data
 response = requests.get(json_url)
@@ -21,13 +21,13 @@ except json.JSONDecodeError as e:
 # Create a list to store RSS items
 rss_items = []
 
-counter = 0;
+counter = 0
 
 # Iterate over each post and extract details
 for post in posts_data:
-    title = post
-    link = post.replace(" ", "_")
-    pub_date_str = posts_data[post][0]
+    link = post['title']
+    title = link.replace("_", " ")
+    pub_date_str = post['date']
     
     # Parse the publication date if provided
     try:
